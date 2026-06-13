@@ -1,6 +1,6 @@
 #ifndef __BAR_H
 #define __BAR_H
-
+//definir que mienrda es esto o cambialo
 #include <defs.h>
 #include <SDL.h>
 #include <ball.h>

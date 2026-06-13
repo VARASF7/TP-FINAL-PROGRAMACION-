@@ -1,6 +1,6 @@
 #ifndef __BALL_H
 #define __BALL_H
-
+//BUSCAR QUE ES ESTO
 #include <SDL.h>
 #include <list.h>
 
