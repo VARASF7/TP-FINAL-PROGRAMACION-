@@ -51,7 +51,7 @@ void handle_key(SDL_KeyboardEvent *event, input_t* input){
                 input->p2_parry = isPressed;
                 break;
             case PAUSE_KEYCODE:
-                input->p1_up = isPressed;
+                input->pause = isPressed;
                 break;
             default:
                 break;

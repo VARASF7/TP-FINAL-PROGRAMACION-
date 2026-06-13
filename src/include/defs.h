@@ -1,11 +1,12 @@
 #ifndef __MAIN_H
 #define __MAIN_H
-
+//BUSCAR DEFINIR
 #define WINDOW_WIDTH 1920
 #define WINDOW_HEIGHT 1080
 #define GAME_NAME "PONGG"
 #define TICKS_FOR_NEXT_FRAME (1000 / 60)
 #define FONT_SIZE 120
+//cambiar defines por tipo de datos
 
 #define ASSET_BG "./assets/img/bg.png"
 #define ASSET_BALL "./assets/img/ball.png"

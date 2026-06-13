@@ -2,6 +2,10 @@
 // PVS-Studio Static Code Analyzer for C, C++ and C#: http://www.viva64.com
 using namespace std;
 
+
+//NO LAMBDA CAMBIAR MARCOS
+
+
 #include <iostream>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
