@@ -3,6 +3,7 @@
 //BUSCAR QUE ES ESTO
 #include <SDL.h>
 #include <list.h>
+//hola
 
 #define MAX_BALL_SPEED 4000
 #define BALL_SPEED_DEFAULT 500
