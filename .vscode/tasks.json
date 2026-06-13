@@ -5,20 +5,20 @@
             "label": "C/C++: cl.exe build",
             "command": "cl.exe",
             "args": [
-                "${workspaceFolder}\\src\\*.cpp",
+                "\"${workspaceFolder}\\src\\*.cpp\"",
                 "/nologo",
                 "/EHsc",
-                "/Fe${workspaceFolder}\\out\\pong.exe",
-                "/I${workspaceFolder}\\src\\include",
-                "/I${workspaceFolder}\\libs\\SDL2\\include",
-                "/I${workspaceFolder}\\libs\\SDL2_image\\include",
-                "/I${workspaceFolder}\\libs\\SDL2_ttf\\include",
-                "/I${workspaceFolder}\\libs\\SDL2_mixer\\include",
+                "/Fe\"${workspaceFolder}\\out\\pong.exe\"",
+                "/I\"${workspaceFolder}\\libs\\SDL2\\include\"",
+                "/I\"${workspaceFolder}\\src\\include\"",
+                "/I\"${workspaceFolder}\\libs\\SDL2_image\\include\"",
+                "/I\"${workspaceFolder}\\libs\\SDL2_ttf\\include\"",
+                "/I\"${workspaceFolder}\\libs\\SDL2_mixer\\include\"",
                 "/link",
-                "/LIBPATH:${workspaceFolder}\\libs\\SDL2\\lib\\x64",
-                "/LIBPATH:${workspaceFolder}\\libs\\SDL2_ttf\\lib\\x64",
-                "/LIBPATH:${workspaceFolder}\\libs\\SDL2_image\\lib\\x64",
-                "/LIBPATH:${workspaceFolder}\\libs\\SDL2_mixer\\lib\\x64",
+                "/LIBPATH:\"${workspaceFolder}\\libs\\SDL2\\lib\\x64\"",
+                "/LIBPATH:\"${workspaceFolder}\\libs\\SDL2_ttf\\lib\\x64\"",
+                "/LIBPATH:\"${workspaceFolder}\\libs\\SDL2_image\\lib\\x64\"",
+                "/LIBPATH:\"${workspaceFolder}\\libs\\SDL2_mixer\\lib\\x64\"",
                 "SDL2.lib",
                 "SDL2main.lib",
                 "SDL2_image.lib",
@@ -43,8 +43,8 @@
             "label": "copy SDL",
             "command": "xcopy",
             "args": [
-                "${workspaceFolder}\\libs\\SDL2\\lib\\x64\\*.dll",
-                "${workspaceFolder}\\out\\",
+                "\"${workspaceFolder}\\libs\\SDL2\\lib\\x64\\*.dll\"",
+                "\"${workspaceFolder}\\out\\\"",
                 "/Y"
             ],
             "promptOnClose": false
@@ -54,8 +54,8 @@
             "label": "copy SDL_image",
             "command": "xcopy",
             "args": [
-                "${workspaceFolder}\\libs\\SDL2_image\\lib\\x64\\*.dll",
-                "${workspaceFolder}\\out\\",
+                "\"${workspaceFolder}\\libs\\SDL2_image\\lib\\x64\\*.dll\"",
+                "\"${workspaceFolder}\\out\\\"",
                 "/Y",
             ],
             "promptOnClose": false
@@ -65,8 +65,8 @@
             "label": "copy SDL_ttf",
             "command": "xcopy",
             "args": [
-                "${workspaceFolder}\\libs\\SDL2_ttf\\lib\\x64\\*.dll",
-                "${workspaceFolder}\\out\\",
+                "\"${workspaceFolder}\\libs\\SDL2_ttf\\lib\\x64\\*.dll",
+                "\"${workspaceFolder}\\out\\\"",
                 "/Y"
             ],
             "promptOnClose": false
@@ -76,8 +76,8 @@
             "label": "copy SDL_mixer",
             "command": "xcopy",
             "args": [
-                "${workspaceFolder}\\libs\\SDL2_mixer\\lib\\x64\\*.dll",
-                "${workspaceFolder}\\out\\",
+                "\"${workspaceFolder}\\libs\\SDL2_mixer\\lib\\x64\\*.dll\"",
+                "\"${workspaceFolder}\\out\\\"",
                 "/Y"
             ],
             "promptOnClose": false
@@ -87,8 +87,8 @@
             "label": "copy assets",
             "command": "xcopy",
             "args": [
-                "${workspaceFolder}\\assets",
-                "${workspaceFolder}\\out",
+                "\"${workspaceFolder}\\assets\"",
+                "\"${workspaceFolder}\\out\"",
                 "/Y",
                 "/E",
                 "/C",
