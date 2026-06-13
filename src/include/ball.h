@@ -1,5 +1,7 @@
 #ifndef __BALL_H
 #define __BALL_H
+//hola soy juan puto
+
 
 #include <SDL.h>
 #include <list.h>
