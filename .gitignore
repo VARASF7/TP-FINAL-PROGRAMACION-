@@ -1,4 +1,3 @@
-.vscode/
 # Prerequisites
 *.d
 
@@ -442,3 +441,4 @@ strace_out
 *.log
 *.tasks
 .gdb_history
+out/*
