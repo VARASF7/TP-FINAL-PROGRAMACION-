@@ -29,17 +29,17 @@ void init_ball(ball_t* ball, SDL_Texture* texture){
     ball->texture = texture;
 }
 
-bool move_ball(ball_t* ball, long ticks, vector<collidable_t*> obstacles){
-    ball->newx = ball->x + ball->vx * (ticks / 1000.0);
-    ball->newy = ball->y + ball->vy * (ticks / 1000.0);
+bool move_ball(ball_t* ball, vector<collidable_t*> obstacles){
+    ball->newx = ball->x + ball->vx;
+    ball->newy = ball->y + ball->vy  ;
 
     if (check_collisions(ball, obstacles)){
-        ball->newx = ball->x + ball->vx * (ticks / 1000.0);
-        ball->newy = ball->y + ball->vy * (ticks / 1000.0);
+        ball->newx = ball->x + ball->vx;
+        ball->newy = ball->y + ball->vy;
     }
     ball->x = ball->newx;
     ball->y = ball->newy;
-    int newangle = ball->angle + SDL_sqrt(ball->vx * ball->vx + ball->vy * ball->vy) * ticks / 5000.0;
+    int newangle = ball->angle + SDL_sqrt(ball->vx * ball->vx + ball->vy * ball->vy) / 5.0;
     newangle = ball->angle + SDL_pow(newangle - ball->angle, 1.5);
     ball->angle = SDL_fmod(newangle, 360.0);
     dampen_speed(ball);

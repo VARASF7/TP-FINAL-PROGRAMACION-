@@ -5,8 +5,8 @@
 
 
 
-#define MAX_BALL_SPEED  4000
-#define BALL_SPEED_DEFAULT  500
+#define MAX_BALL_SPEED  75
+#define BALL_SPEED_DEFAULT  15
 #define BALL_RADIUS 100
 #define BALL_SPEED_DAMPEN_FACTOR  0.995
 #define COLLIDER_PRECISIO 100
@@ -41,7 +41,7 @@ typedef struct collidable_t{
 } collidable_t;
 
 bool check_collisions(ball_t* ball, vector<collidable_t*>obstacles);
-bool move_ball(ball_t* ball, long ticks, vector<collidable_t*> obstacles);
+bool move_ball(ball_t* ball, vector<collidable_t*> obstacles);
 void init_ball(ball_t* ball, SDL_Texture* texture);
 void draw_ball(SDL_Renderer* renderer, ball_t* ball);
 void bounceoff(int* vnorm, int* vtan, int collider_vtan, int collider_vnorm);

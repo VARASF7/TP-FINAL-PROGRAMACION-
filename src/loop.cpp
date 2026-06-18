@@ -22,7 +22,6 @@ vector<collidable_t*> obstacles = {};
 bar_t bars[2] = {0};
 
 void run_game_loop(){
-    uint64_t ticks = 0;
     input_t input;
     init_input(&input);
     init_text();
@@ -51,18 +50,15 @@ void run_game_loop(){
     while(1){
         handle_input(&input);
         prepareScene(bg);
-        if (!run_frame(ticks, input)) return;
+        if (!run_frame(input)) return;
         //SDL_Texture* passion = getTextTexture("GRAPHIC DESIGN IS MY PASSION", font);
         //easyblit(passion, 200, 200);
         presentScene();
-        ticks = SDL_GetTicks64();
     }
 }
 
-bool run_frame(uint64_t lastTicks, input_t input){
-    while (SDL_GetTicks64() - lastTicks < TICKS_FOR_NEXT_FRAME) {
-        SDL_Delay(1);
-    }
+bool run_frame(input_t input){
+   
     if (input.p1_up){
         set_bar_movement(&bars[P1], 1);
     } else if (input.p1_down){
@@ -86,13 +82,13 @@ bool run_frame(uint64_t lastTicks, input_t input){
         parry(&bars[P2]);
     }
 
-    move_bar(&bars[P1], SDL_GetTicks64() - lastTicks);
-    move_bar(&bars[P2], SDL_GetTicks64() - lastTicks);
+    move_bar(&bars[P1]); 
+    move_bar(&bars[P2]);
 
     draw_bar(&bars[P1]);
     draw_bar(&bars[P2]);
 
-    if (!move_ball(&ball, SDL_GetTicks64() - lastTicks, obstacles)) return false;
+    if (!move_ball(&ball, obstacles)) return false;
     draw_ball(renderer, &ball);
     return true;
 }   

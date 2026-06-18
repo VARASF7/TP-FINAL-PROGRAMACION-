@@ -40,10 +40,10 @@ collidable_t* bar_to_collider(bar_t* bar){
     return &bar->collider;
 }
 
-void move_bar(bar_t* bar, long ticks){
-    bar->y = bar->y + bar->vy * (ticks / 1000.0);
+void move_bar(bar_t* bar){
+    bar->y = bar->y + bar->vy;
     if (bar->vx || bar->parry_step){
-        bar->x = bar->x + bar->vx * (ticks / 1000.0);
+        bar->x = bar->x + bar->vx;
         bar->parry_step++;
         if (bar->parry_step == BAR_PARRY_STEPS/2){
             bar->vx = -bar->vx;

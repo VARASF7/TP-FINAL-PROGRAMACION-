@@ -24,16 +24,16 @@ typedef struct bar_t{
 #define P1_INIT_X  200
 #define P2_INIT_X  WINDOW_WIDTH - P1_INIT_X
 #define BAR_INIT_Y  WINDOW_HEIGHT/2
-#define BAR_SPEED  1000
+#define BAR_SPEED  12
 #define BAR_PARRY_STEPS  10
-#define BAR_PARRY_SPEED  1000
+#define BAR_PARRY_SPEED  25
 #define BAR_HEIGHT  400
-#define BAR_WIDTH  20
+#define BAR_WIDTH  150
 
 void init_bar(bar_t* bar, SDL_Texture* texture, int x, int pspeed);
 void draw_bar(bar_t* bar);
 collidable_t* bar_to_collider(bar_t* bar);
-void move_bar(bar_t* bar, long ticks);
+void move_bar(bar_t* bar);
 void set_bar_movement(bar_t* bar, char dir);
 void parry(bar_t* bar);
 
