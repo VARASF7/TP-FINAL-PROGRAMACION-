@@ -15,7 +15,7 @@ using namespace std;
 #include <input.h>
 #include <draw.h>
 #include <ball.h>
-#include <list.h>
+
 
 void init_ball(ball_t* ball, SDL_Texture* texture){
     ball->x = 1000;
@@ -29,7 +29,7 @@ void init_ball(ball_t* ball, SDL_Texture* texture){
     ball->texture = texture;
 }
 
-bool move_ball(ball_t* ball, long ticks, list_adt obstacles){
+bool move_ball(ball_t* ball, long ticks, vector<collidable_t*> obstacles){
     ball->newx = ball->x + ball->vx * (ticks / 1000.0);
     ball->newy = ball->y + ball->vy * (ticks / 1000.0);
 
@@ -52,12 +52,12 @@ void dampen_speed(ball_t* ball){
     if (SDL_abs(ball->vy) > BALL_SPEED_DEFAULT) ball->vy *= BALL_SPEED_DAMPEN_FACTOR;
 }
 
-bool check_collisions(ball_t* ball, list_adt obstacles){
-    init_iterator(obstacles);
+bool check_collisions(ball_t* ball, vector<collidable_t*> obstacles){
+    
     bool hasBounced = false;
 
-    while (has_next(obstacles)){
-        collidable_t* collidable = (collidable_t*)next(obstacles);
+    for (vector<collidable_t*>::iterator it = obstacles.begin(); it != obstacles.end(); it++){
+        collidable_t* collidable = *it;
         int cutoff = SDL_max(SDL_abs(ball->newx - ball->x), SDL_abs(ball->newy - ball->y));
         for (int i = 0; i <= cutoff; i++){  //Linearly interpolate movement and try to find collisions with more detail
             //collision while going up

@@ -11,7 +11,6 @@ using namespace std;
 #include <input.h>
 #include <draw.h>
 #include <ball.h>
-#include <list.h>
 #include <bar.h>
 
 void init_bar(bar_t* bar, SDL_Texture* texture, int x, int pspeed){

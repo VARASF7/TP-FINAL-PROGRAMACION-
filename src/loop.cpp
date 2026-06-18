@@ -11,7 +11,6 @@ using namespace std;
 #include <input.h>
 #include <draw.h>
 #include <ball.h>
-#include <list.h>
 #include <text.h>
 #include <bar.h>
 
@@ -19,7 +18,7 @@ extern SDL_Renderer* renderer;
 
 SDL_Texture* bg;
 ball_t ball;
-list_adt obstacles;
+vector<collidable_t*> obstacles = {};
 bar_t bars[2] = {0};
 
 void run_game_loop(){
@@ -32,22 +31,22 @@ void run_game_loop(){
 
     bg = load_texture(ASSET_BG);
 
-    obstacles = create_list();
+
     collidable_t wall1 = {0, 0, 0, 0, 1920, 10};
     collidable_t wall2 = {0, 0, 0, 0, 10, 1080};
     collidable_t wall3 = {0, 1080, 0, 1080, 1920, 10};
     collidable_t wall4 = {1920, 0, 1920, 0, 10, 1080};
 
-    append(obstacles, &wall1);
-    append(obstacles, &wall2);
-    append(obstacles, &wall3);
-    append(obstacles, &wall4);
+    obstacles.push_back(&wall1);
+    obstacles.push_back(&wall2);
+    obstacles.push_back(&wall3);
+    obstacles.push_back(&wall4);
 
     init_bar(&bars[P1], load_texture(ASSET_BAR), P1_INIT_X, BAR_PARRY_SPEED);
     init_bar(&bars[P2], load_texture(ASSET_BAR), P2_INIT_X, -BAR_PARRY_SPEED);
 
-    append(obstacles, bar_to_collider(&bars[P1]));
-    append(obstacles, bar_to_collider(&bars[P2]));
+    obstacles.push_back(bar_to_collider(&bars[P1]));
+    obstacles.push_back(bar_to_collider(&bars[P2]));
 
     while(1){
         handle_input(&input);
